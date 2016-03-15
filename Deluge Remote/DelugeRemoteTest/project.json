@@ -1,10 +1,6 @@
 ﻿{
   "dependencies": {
-    "Microsoft.Bcl.Compression": "3.9.85",
-    "Microsoft.NETCore.UniversalWindowsPlatform": "5.0.0",
-    "Newtonsoft.Json": "8.0.3",
-    "SQLite.Core.UAP": "3.8.11.158",
-    "SQLite.Net-PCL": "3.1.1"
+    "Microsoft.NETCore.UniversalWindowsPlatform": "5.0.0"
   },
   "frameworks": {
     "uap10.0": {}
