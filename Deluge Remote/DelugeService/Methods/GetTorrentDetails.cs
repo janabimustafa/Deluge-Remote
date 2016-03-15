@@ -10,14 +10,10 @@ namespace DelugeService
 {
     public partial class DelugeService
     {
-        public async Task<DelugeUpdateResult> Update()
-        {            
-            var response = await client.SendMessage(RpcConstants.RPC_METHOD_GET, new object[] { RpcConstants.RPC_FIELDS_ARRAY, new object() });
+        public async Task<DelugeUpdateResult> GetTorrentDetails(DelugeTorrent torrent)
+        {
+            var response = await client.SendMessage(RpcConstants.RPC_METHOD_STATUS, torrent.unique_id, new object[] { RpcConstants.RPC_TRACKERS, RpcConstants.RPC_TRACKER_STATUS });
             DelugeUpdateResult result = response.Result.ToObject<DelugeUpdateResult>();
-            foreach(string key in result.torrents.Keys)
-            {
-                result.torrents[key].unique_id = key;
-            }
             return result;
         }
     }

@@ -32,6 +32,8 @@ namespace DelugeService.Data
         public bool is_auto_managed { get; set; }
         public int queue { get; set; }
         public float distributed_copies { get; set; }
+        [JsonIgnore]
+        public string unique_id { get; set; }
     }
 
     public class DelugeUpdateResult
