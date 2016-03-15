@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Template10.Services.NavigationService;
 using Windows.UI.Xaml.Navigation;
+using System.Diagnostics;
 
 namespace Deluge_Remote.ViewModels
 {
@@ -26,6 +27,8 @@ namespace Deluge_Remote.ViewModels
             {
                 Value = suspensionState[nameof(Value)]?.ToString();
             }
+            if (DelugeService.Database.ServiceDatabase.Instance.GetType() == typeof(DelugeService.Database.ServiceDatabase))
+                Debug.Write("Database available!");
             await Task.CompletedTask;
         }
 

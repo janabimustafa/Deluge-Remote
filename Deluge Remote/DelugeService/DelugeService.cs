@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DelugeService.Helpers;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,22 +7,13 @@ using System.Threading.Tasks;
 
 namespace DelugeService
 {
-    public class DelugeService
+    public partial class DelugeService
     {
-        private static DelugeService _instance;
+        private RpcClient client;
+        public DelugeService(string host, ushort port = 8112, bool https = false)
+        {            
+            client = new RpcClient(host, port, https);
+        }       
 
-        public static DelugeService Instance
-        {
-            get
-            {
-                if (_instance == null)
-                    _instance = new DelugeService();
-                return _instance;
-            }
-            set
-            {
-                _instance = value;
-            }
-        }
     }
 }
