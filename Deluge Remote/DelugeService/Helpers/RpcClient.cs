@@ -40,7 +40,7 @@ namespace DelugeService.Helpers
             var requestString = JsonConvert.SerializeObject(request);
             var requestContent = new StringContent(requestString, System.Text.Encoding.ASCII, "application/json");           
            
-            var responseMessage = await client.PostAsync(connection.Url, requestContent);
+            var responseMessage = await client.PostAsync(connection.RpcUrl, requestContent);
             //responseMessage.EnsureSuccessStatusCode();            
             var responseString = await responseMessage.Content.ReadAsStringAsync();
             return new JResponse(responseString);
@@ -48,7 +48,7 @@ namespace DelugeService.Helpers
 
         public async Task<JResponse> SendMessage(String methodName, params object[] param)
         {
-            if (cookies.Count == 0)
+            if (cookies.Count == 0 && !string.IsNullOrEmpty(connection.Password))
                 await Authenticate();
             return await SendRequest(methodName, param);
         }

@@ -18,7 +18,10 @@ namespace DelugeService.Database.Table
         public string Password { get; set; }
 
         [Ignore]
-        public string Url => string.Format("{0}://{1}:{2}/json", Https ? "https" : "http", Host, Port);
+        public string RpcUrl => string.Format("{0}://{1}:{2}/json", Https ? "https" : "http", Host, Port);
+
+        [Ignore]
+        public string UploadUrl => string.Format("{0}://{1}:{2}/upload", Https ? "https" : "http", Host, Port);
 
         public DelugeConnection() { }
         public DelugeConnection(string Host, ushort Port = 8112, bool Https = false, string Password = null)

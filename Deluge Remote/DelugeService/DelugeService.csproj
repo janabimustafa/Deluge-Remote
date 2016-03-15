@@ -111,10 +111,12 @@
     <Compile Include="Database\Methods\DelugeConnection.cs" />
     <Compile Include="Database\ServiceDatabase.cs" />
     <Compile Include="Database\Table\DelugeConnection.cs" />
+    <Compile Include="Data\DelugeTorrent.cs" />
     <Compile Include="DelugeService.cs" />
     <Compile Include="Helpers\JRequest.cs" />
     <Compile Include="Helpers\JResponse.cs" />
     <Compile Include="Helpers\RpcClient.cs" />
+    <Compile Include="Methods\Update.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Properties\DelugeService.rd.xml" />
   </ItemGroup>
@@ -126,6 +128,7 @@
       <Name>SQLite for Universal Windows Platform</Name>
     </SDKReference>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>
