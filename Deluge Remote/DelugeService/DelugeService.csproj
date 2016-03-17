@@ -117,7 +117,8 @@
     <Compile Include="Helpers\JResponse.cs" />
     <Compile Include="Helpers\RpcClient.cs" />
     <Compile Include="Helpers\RpcConstants.cs" />
-    <Compile Include="Methods\GetTorrentDetails.cs" />
+    <Compile Include="Helpers\DelugeServiceException.cs" />
+    <Compile Include="Methods\GetTorrentTrackers.cs" />
     <Compile Include="Methods\Update.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Properties\DelugeService.rd.xml" />

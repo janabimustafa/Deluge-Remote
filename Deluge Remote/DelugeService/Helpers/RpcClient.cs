@@ -50,7 +50,10 @@ namespace DelugeService.Helpers
         {
             if (cookies.Count == 0 && !string.IsNullOrEmpty(connection.Password))
                 await Authenticate();
-            return await SendRequest(methodName, param);
+            var response = await SendRequest(methodName, param);
+            if(response.HasError)
+                throw new DelugeServiceException(response.ErrorString);
+            return response;
         }
 
         private async Task Authenticate()

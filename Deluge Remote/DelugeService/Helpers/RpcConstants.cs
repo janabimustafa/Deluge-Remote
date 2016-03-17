@@ -66,5 +66,9 @@ namespace DelugeService.Helpers
         public static string RPC_FILEPROGRESS = "file_progress";
         public static string RPC_FILEPRIORITIES = "file_priorities";
 
+        public static string RPC_PAUSEDSTATE = "Paused";
+        public static string RPC_DOWNLOADINGSTATE = "Downloading";
+
     }
+    
 }

@@ -39,7 +39,7 @@ namespace DelugeService.Data
     public class DelugeUpdateResult
     {
         public DelugeStats stats { get; set; }
-        public bool connected { get; set; }        
+        public bool connected { get; set; }
         public Dictionary<string, DelugeTorrent> torrents { get; set; }
         public DelugeFilters filters { get; set; }
     }
@@ -64,5 +64,41 @@ namespace DelugeService.Data
         public object[][] tracker_host { get; set; }
         public object[][] label { get; set; }
     }
+
+    public class TrackerResult
+    {
+        public Tracker[] trackers { get; set; }
+        public string tracker_status { get; set; }
+    }
+
+    public class Tracker
+    {
+        public bool send_stats { get; set; }
+        public int fails { get; set; }
+        public bool verified { get; set; }
+        public string url { get; set; }
+        public int fail_limit { get; set; }
+        public bool complete_sent { get; set; }
+        public int source { get; set; }
+        public bool start_sent { get; set; }
+        public int tier { get; set; }
+        public bool updating { get; set; }
+    }
+
+    public class FilesResult
+    {
+        public File[] files { get; set; }
+        public float[] file_progress { get; set; }
+        public int[] file_priorities { get; set; }
+    }
+
+    public class File
+    {
+        public int index { get; set; }
+        public string path { get; set; }
+        public long offset { get; set; }
+        public long size { get; set; }
+    }
+
 
 }
