@@ -14,7 +14,7 @@ namespace DelugeRemoteTest
         DelugeService.Data.DelugeUpdateResult result;
         public DelugeServiceTest()
         {
-            service = new DelugeService.DelugeService(new DelugeService.Database.Table.DelugeConnection("192.168.1.7", Password: "5546244"));            
+            service = new DelugeService.DelugeService(new DelugeService.Database.Table.DelugeConnection(PrivateInfo.Host, Password: PrivateInfo.Password, Port:PrivateInfo.Port));            
         }
 
         [TestMethod]

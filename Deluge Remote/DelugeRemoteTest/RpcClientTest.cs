@@ -11,7 +11,7 @@ namespace DelugeRemoteTest
         [TestMethod]
         public async Task TestRPCRequests()
         {
-            RpcClient client = new RpcClient(new DelugeService.Database.Table.DelugeConnection("192.168.1.7", Password: "5546244"));
+            RpcClient client = new RpcClient(new DelugeService.Database.Table.DelugeConnection(PrivateInfo.Host, Password: PrivateInfo.Password, Port: PrivateInfo.Port));
             var response = await client.SendMessage("system.listMethods");
             Assert.IsNotNull(response);
             Assert.IsFalse(response.HasError);
