@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
 
 namespace DelugeService.Helpers
 {
@@ -11,35 +12,16 @@ namespace DelugeService.Helpers
     {
         public JResponse(string data)
         {
-            JObject r = (JObject)Newtonsoft.Json.JsonConvert.DeserializeObject(data);
+            JObject r = (JObject)Newtonsoft.Json.JsonConvert.DeserializeObject(data, new JsonSerializerSettings() { NullValueHandling = NullValueHandling.Include });
             foreach (KeyValuePair<string, JToken> kvp in r)
             {
                 this.Add(kvp.Key, kvp.Value);
             }
         }
-        public JToken Result
-        {
-            get
-            {
-                return this["result"];
-            }
-        }
+        public JToken Result => this["result"];
 
-        public string ErrorString
-        {
-            get
-            {
-                return this["error"].ToString();
-            }
-        }
+        public string ErrorString => this["error"]["message"].ToString();
 
-        public bool HasError
-        {
-            get
-            {
-                return this["error"] == null;
-            }
-        }
-
+        public bool HasError => this["error"].HasValues;
     }
 }
